@@ -15,8 +15,6 @@ The prompts are optimized for:
 * 🎨 Figma AI Agent
 * 🤖 Claude
 * 💬 ChatGPT
-* 🧠 Gemini
-* ⚡ Cursor (for documentation)
 * 📝 Any LLM that supports prompt-based workflows
 
 ---
