@@ -1,14 +1,53 @@
-# Design System Creation Prompt
+# Enterprise Design System Creation Prompt
 
 ## ROLE
 
 Act as a **Principal Design System Architect** specializing in enterprise Design Systems such as IBM Carbon, Uber Base, Atlassian Design System, Material Design 3, Polaris, and Fluent.
 
-Using the existing designs in this Figma file as the source of truth, create a complete, scalable, production-ready **Design System** using modern Figma Variables and token architecture.
+Using the existing designs in this Figma file as the source of truth, create a complete, scalable, production-ready **Design System** using modern Figma Variables and enterprise token architecture.
 
-The objective is to establish a clean, maintainable, and future-proof Design System that can scale across multiple products while preserving the existing visual language.
+The objective is to establish a clean, maintainable, and future-proof Design System that can scale across multiple products while preserving the existing product's visual language.
 
-Do not redesign the UI. Instead, extract reusable design decisions and organize them into a structured Design System.
+---
+
+# PROJECT CONFIGURATION
+
+Before creating the Design System, ask me for the following information if it has not already been provided:
+
+### 1. Primary Brand Color (Required)
+
+Example:
+`#0057FF`
+
+Use this as the base color for generating the complete Primary color scale.
+
+---
+
+### 2. Secondary Brand Color (Optional)
+
+Example:
+`#F4B400`
+
+If a Secondary Brand Color is provided:
+
+* Create the complete Secondary color scale.
+* Create Brand/Secondary tokens.
+* Create Primitive/Secondary tokens.
+* Generate Semantic Tokens where required.
+
+If a Secondary Brand Color is **not provided**, do **not** create:
+
+* Brand/Secondary tokens
+* Primitive/Secondary tokens
+* Secondary Semantic Tokens
+
+Do not invent or generate a secondary color palette.
+
+---
+
+### 3. Typography (Required)
+
+"[Enter FOnt Name]" , Use this font for creating font tokens
 
 ---
 
@@ -37,15 +76,19 @@ Avoid duplication at every level.
 
 Follow this hierarchy exactly.
 
-```
 Brand Tokens
-        ↓
+
+↓
+
 Primitive Tokens
-        ↓
+
+↓
+
 Semantic Tokens
-    ├── Global Semantic Tokens
-    └── Component Semantic Tokens
-```
+
+├── Global Semantic Tokens
+
+└── Component Semantic Tokens
 
 Every layer must inherit from the previous layer.
 
@@ -55,20 +98,24 @@ Never skip inheritance.
 
 # LEVEL 1 — BRAND TOKENS
 
-Brand Tokens represent the visual identity of the product.
-
-They contain only raw brand colors.
+Brand Tokens represent only the visual identity of the product.
 
 Do not assign UI meaning.
 
-Organize colors into:
+Create collections for:
 
 Brand/Primary/*
-Brand/Secondary/*
+
+Brand/Secondary/* (Only if Secondary Brand Color is provided)
+
 Brand/Neutral/*
+
 Brand/Success/*
+
 Brand/Error/*
+
 Brand/Warning/*
+
 Brand/Info/*
 
 Include complete shade scales wherever applicable.
@@ -81,15 +128,13 @@ Brand/Black
 
 Brand/Transparent
 
-Structure the Brand collection so additional themes (such as Red Theme or Gold Theme) can be added later without changing the architecture.
+Structure the Brand collection so additional themes can be introduced later without restructuring the Design System.
 
 ---
 
 # OPACITY TOKENS
 
 Create reusable opacity variables.
-
-Examples:
 
 Opacity/0
 
@@ -121,7 +166,7 @@ Opacity/88
 
 Opacity/100
 
-Opacity variables should be shared throughout the Design System.
+These opacity tokens should be reused throughout the entire Design System.
 
 ---
 
@@ -131,15 +176,13 @@ Create typography foundations independent from text styles.
 
 Include:
 
-## Font Families
+## Font Family
 
 Primary
 
-Secondary
+Monospace (only if required)
 
-Monospace
-
-## Font Weights
+## Font Weight
 
 Regular
 
@@ -149,11 +192,11 @@ Semibold
 
 Bold
 
-## Font Sizes
+## Font Size
 
-Create a scalable typography scale based on the existing designs.
+Create a scalable typography scale.
 
-## Line Heights
+## Line Height
 
 Create proportional line-height variables.
 
@@ -161,7 +204,14 @@ Create proportional line-height variables.
 
 Create reusable tracking variables.
 
-Typography foundations should be reusable throughout the system.
+Generate reusable text styles for:
+
+* Display
+* Heading
+* Title
+* Body
+* Label
+* Caption
 
 ---
 
@@ -183,7 +233,7 @@ Motion Duration (if applicable)
 
 Motion Easing (if applicable)
 
-Only create foundations that are required by the existing product.
+Only create foundations that are required by the product.
 
 ---
 
@@ -195,7 +245,7 @@ Create:
 
 Primitive/Primary/*
 
-Primitive/Secondary/*
+Primitive/Secondary/* (Only if Secondary Brand Color exists)
 
 Primitive/Neutral/*
 
@@ -207,9 +257,7 @@ Primitive/Warning/*
 
 Primitive/Info/*
 
-Primitive Tokens should remain independent from any UI component.
-
-Never create Button, Card, Input, Text, Border or Background tokens here.
+Primitive Tokens must remain completely independent from UI components.
 
 ---
 
@@ -224,137 +272,139 @@ Every Semantic Token must inherit from a Primitive Token.
 
 Never reference Brand Tokens directly.
 
+Create semantic tokens for:
+
 ## Background
 
-Background/Primary
+Primary
 
-Background/Secondary
+Secondary
 
-Background/Tertiary
+Tertiary
 
-Background/Inverse
+Inverse
 
-Background/Brand
+Brand
 
-Background/Success
+Success
 
-Background/Error
+Error
 
-Background/Warning
+Warning
 
-Background/Info
+Info
 
 ---
 
 ## Surface
 
-Surface/Primary
+Primary
 
-Surface/Secondary
+Secondary
 
-Surface/Raised
+Raised
 
-Surface/Sunken
+Sunken
 
-Surface/Overlay
+Overlay
 
 ---
 
 ## Text
 
-Text/Primary
+Primary
 
-Text/Secondary
+Secondary
 
-Text/Tertiary
+Tertiary
 
-Text/Disabled
+Disabled
 
-Text/Inverse
+Inverse
 
-Text/Brand
+Brand
 
-Text/Success
+Success
 
-Text/Error
+Error
 
-Text/Warning
+Warning
 
-Text/Info
+Info
 
 ---
 
 ## Icon
 
-Icon/Primary
+Primary
 
-Icon/Secondary
+Secondary
 
-Icon/Tertiary
+Tertiary
 
-Icon/Disabled
+Disabled
 
-Icon/Inverse
+Inverse
 
-Icon/Brand
+Brand
 
-Icon/Success
+Success
 
-Icon/Error
+Error
 
-Icon/Warning
+Warning
 
-Icon/Info
+Info
 
 ---
 
 ## Border
 
-Border/Primary
+Primary
 
-Border/Secondary
+Secondary
 
-Border/Subtle
+Subtle
 
-Border/Strong
+Strong
 
-Border/Focus
+Focus
 
-Border/Disabled
+Disabled
 
-Border/Success
+Success
 
-Border/Error
+Error
 
-Border/Warning
+Warning
 
-Border/Info
+Info
 
 ---
 
 ## Overlay
 
-Overlay/Light
+Light
 
-Overlay/Dark
+Dark
 
-Overlay/Scrim
+Scrim
 
 ---
 
 ## State
 
-State/Hover
+Hover
 
-State/Pressed
+Pressed
 
-State/Focused
+Focused
 
-State/Selected
+Selected
 
-State/Dragged
+Dragged
 
-State/Disabled
+Disabled
 
 ---
 
@@ -396,207 +446,44 @@ Every Component Token must inherit only from Global Semantic Tokens.
 
 Never reference Brand Tokens or Primitive Tokens directly.
 
-Organize tokens by component.
-
-Create tokens for:
-
-## Button
-
-Primary
-
-Secondary
-
-Tertiary
-
-Ghost
-
-Link
-
-Include:
-
-Background
-
-Text
-
-Border
-
-Icon
-
-Hover
-
-Pressed
-
-Focused
-
-Disabled
-
----
-
-## Input
-
-Background
-
-Text
-
-Placeholder
-
-Border
-
-Focus
-
-Error
-
-Disabled
-
-Label
-
-Helper Text
-
----
-
-## Card
-
-Background
-
-Border
-
-Title
-
-Subtitle
-
-Shadow
-
----
-
-## Navigation
-
-Background
-
-Text
-
-Icon
-
-Indicator
-
----
-
-## Tabs
-
-Active
-
-Inactive
-
-Indicator
-
----
-
-## Badge
-
-Background
-
-Text
-
-Border
-
----
-
-## Chip
-
-Background
-
-Text
-
-Border
-
----
-
-## Tag
-
-Background
-
-Text
-
-Border
-
----
-
-## Modal
-
-Background
-
-Header
-
-Border
-
-Overlay
-
----
-
-## Bottom Sheet
-
-Background
-
-Header
-
-Handle
-
-Border
-
----
-
-## Toast
-
-Background
-
-Text
-
-Icon
-
----
-
-## Banner
-
-Background
-
-Text
-
-Icon
-
----
-
-## Tooltip
-
-Background
-
-Text
-
----
-
-## Avatar
-
-Background
-
-Text
-
-Border
-
----
-
-## List Item
-
-Background
-
-Text
-
-Icon
-
-Border
+Create semantic tokens for:
+
+* Button
+* Input
+* Card
+* Navigation
+* Tabs
+* Badge
+* Chip
+* Tag
+* Modal
+* Bottom Sheet
+* Toast
+* Banner
+* Tooltip
+* Avatar
+* List Item
+
+Each component should include only the semantic properties it requires, such as:
+
+* Background
+* Text
+* Border
+* Icon
+* Hover
+* Pressed
+* Focused
+* Disabled
+* Error
+* Selected
+
+Reuse existing semantic tokens wherever possible.
 
 ---
 
 # VARIABLE COLLECTIONS
 
-Organize Variables into clean collections such as:
+Organize Variables into:
 
 * Brand
 * Primitive
@@ -606,7 +493,7 @@ Organize Variables into clean collections such as:
 * Semantic – Light
 * Semantic – Dark
 
-Maintain clear inheritance between collections.
+Maintain proper inheritance between every collection.
 
 ---
 
@@ -622,34 +509,33 @@ Names must be:
 * Scalable
 * Future-proof
 
-Ensure every token follows a logical inheritance path from Brand → Primitive → Global Semantic → Component Semantic.
+Every token should follow the inheritance path:
+
+Brand → Primitive → Global Semantic → Component Semantic
 
 ---
 
 # IMPLEMENTATION RULES
 
 * Use Figma Variables for every reusable design decision.
-* Eliminate hardcoded colors wherever possible.
-* Eliminate duplicate values.
-* Reuse variables across the entire Design System.
-* Follow modern enterprise Design System standards.
-* Keep the system modular and extensible.
-* Preserve the existing visual language while improving structure and maintainability.
+* Eliminate hardcoded values wherever possible.
+* Reuse variables throughout the Design System.
+* Follow enterprise Design System standards.
+* Keep the architecture modular and extensible.
+* Build the Design System based on the existing product UI.
 
 ---
 
 # DO NOT
 
-* Do not redesign existing screens.
-* Do not invent new visual styles.
 * Do not create duplicate variables.
 * Do not create duplicate colors.
 * Do not hardcode values.
 * Do not mix Brand, Primitive, and Semantic layers.
 * Do not reference Brand Tokens directly inside Component Semantic Tokens.
 * Do not reference Primitive Tokens directly inside Component Semantic Tokens.
-* Do not create unnecessary variables.
-* Do not build components until the token architecture has been fully established.
+* Do not invent unnecessary variables.
+* Do not create Secondary color tokens unless a Secondary Brand Color is provided.
 
 ---
 
@@ -666,9 +552,4 @@ Create:
 * Component Semantic Tokens
 * Variable Collections
 
-The resulting Design System should reflect enterprise Design System standards, be fully variable-driven, and provide a solid foundation for future component creation and product scalability.
-
-# EXPECTED OUTCOME
-
-<img width="2048" height="1233" alt="image" src="https://github.com/user-attachments/assets/17254888-66ee-4cd8-883c-2c98e176bda3" />
-
+The resulting Design System should follow enterprise Design System standards, use a clean token hierarchy, and provide a robust foundation for future component creation and product scalability.
