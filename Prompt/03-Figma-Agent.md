@@ -1,4 +1,4 @@
-# Enterprise Design System Creation Prompt
+# Design System Creation Prompt
 
 ## ROLE
 
@@ -667,3 +667,8 @@ Create:
 * Variable Collections
 
 The resulting Design System should reflect enterprise Design System standards, be fully variable-driven, and provide a solid foundation for future component creation and product scalability.
+
+# EXPECTED OUTCOME
+
+<img width="2048" height="1233" alt="image" src="https://github.com/user-attachments/assets/17254888-66ee-4cd8-883c-2c98e176bda3" />
+
